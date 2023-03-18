@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "pkg/grpc";
+
+package example;
+
+service StringService {
+  rpc ProcessStrings (StringArray) returns (StringResult);
+}
+
+message StringArray {
+  repeated string values = 1;
+}
+
+message StringResult {
+  string value = 1;
+}
