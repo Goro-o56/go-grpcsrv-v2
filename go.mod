@@ -1,4 +1,4 @@
-module go-grpcsrv
+module github.com/goroo-o56/go-grpcsrv-v2
 
 go 1.19
 
@@ -8,7 +8,7 @@ require (
 )
 
 require (
-	github.com/golang/protobuf v1.5.3 // indirect
+	github.com/golang/protobuf v1.5.2 // indirect
 	golang.org/x/net v0.5.0 // indirect
 	golang.org/x/sys v0.4.0 // indirect
 	golang.org/x/text v0.6.0 // indirect
