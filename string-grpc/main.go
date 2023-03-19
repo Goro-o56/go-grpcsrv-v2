@@ -3,8 +3,10 @@ package main
 import (
 	"context"
 	"fmt"
-	examplepb "go-grpcsrv/pkg/grpc"
+	"github.com/goroo-o56/go-grpcsrv-v2/string-grpc/health"
+	examplepb "github.com/goroo-o56/go-grpcsrv-v2/string-grpc/pkg/grpc"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/health/grpc_health_v1"
 	"google.golang.org/grpc/reflection"
 	"log"
 	"net"
@@ -26,6 +28,7 @@ func main() {
 	s := grpc.NewServer()
 
 	examplepb.RegisterStringServiceServer(s, NewServer())
+	grpc_health_v1.RegisterHealthServer(s, &health.Server{})
 	reflection.Register(s) //grpcurl用にリフレクションする。
 
 	go func() {

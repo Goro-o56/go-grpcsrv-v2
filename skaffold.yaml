@@ -1,0 +1,7 @@
+apiVersion: skaffold/v2beta26
+kind: Config
+metadata:
+  name: go-grpcsrv
+requires:
+- path: ./string-grpc
+- path: ./envoy
