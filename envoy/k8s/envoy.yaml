@@ -17,11 +17,11 @@ static_resources:
     - filters:
       - name: envoy.filters.network.http_connection_manager
         typed_config:
-          "@type": type.googleexamples.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager
+          "@type": type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager
           access_log:
           - name: envoy.access_loggers.stdout
             typed_config:
-              "@type": type.googleexamples.com/envoy.extensions.access_loggers.stream.v3.StdoutAccessLog
+              "@type": type.googleapis.com/envoy.extensions.access_loggers.stream.v3.StdoutAccessLog
           codec_type: AUTO
           stat_prefix: ingress_https
           # [START grpc_gke_nlb_tutorial_envoy_route_config]
@@ -40,7 +40,7 @@ static_resources:
           http_filters:
           - name: envoy.filters.http.health_check
             typed_config:
-              "@type": type.googleexamples.com/envoy.extensions.filters.http.health_check.v3.HealthCheck
+              "@type": type.googleapis.com/envoy.extensions.filters.http.health_check.v3.HealthCheck
               pass_through_mode: false
               headers:
               - name: ":path"
@@ -49,11 +49,11 @@ static_resources:
                 exact_match: "healthz"
           - name: envoy.filters.http.router
             typed_config:
-              "@type": type.googleexamples.com/envoy.extensions.filters.http.router.v3.Router
+              "@type": type.googleapis.com/envoy.extensions.filters.http.router.v3.Router
       transport_socket:
         name: envoy.transport_sockets.tls
         typed_config:
-          "@type": type.googleexamples.com/envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext
+          "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext
           require_client_certificate: false
           common_tls_context:
             tls_certificates:
